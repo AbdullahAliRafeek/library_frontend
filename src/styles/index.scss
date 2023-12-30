@@ -1,0 +1,115 @@
+//global vars
+$clr_pr1: #3745b5;
+$clr_sc1: #60b8d4;
+$clr_pr2: #ecaf81;
+$clr_sc2: #e46569;
+
+@import './login';
+@import './admin';
+
+html {
+    scroll-behavior: smooth;
+  }
+
+#page-container{
+    padding-top: 0.8em;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    //overflow-y: scroll;
+
+
+    .pages{
+        -webkit-user-drag: none;
+        pointer-events: none;
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .footer{
+        height: 1.5rem;
+        width: 100%;
+        max-width: 600px;
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        //padding: 0 10px 0 10px;
+        margin: 0.62rem;
+        gap: 20px;
+    
+        .btn{
+            flex-grow: 1;
+            border:1px solid #ccc;
+            font-family:inherit;
+            background-color: transparent;
+            //border-radius: 0.5rem;
+        }
+
+        .btn:hover{
+            background-color: rgb(231, 231, 231);
+        }
+
+        #page-picker{
+            text-align: center;
+            flex-grow: 0.3;
+            border:1px solid #ccc;
+            font-family:inherit;
+            background-color: transparent;
+            //border-radius: 0.5rem;
+            
+            .dropup-contnet{
+                border: 2px solid gray;
+                background-color: white;
+                position: absolute;
+                width: 100%;
+                overflow-y: scroll;
+                height: 6rem;
+
+                //disable scrollbar
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+
+                button{
+                    width: 100%;
+                    border: 0;
+                }:hover{
+                    background-color: gray;
+                }
+            }
+            //disable scrollbar
+            ::-webkit-scrollbar {
+                display: none;
+              }
+
+            :nth-child(even){
+                background-color: lightgray;
+            }
+
+            .dropup{
+                display: none;
+                bottom: 7.2rem;
+                background-color: red;
+                position: relative;
+            }
+        }
+
+        #page-picker:hover{
+            background-color: gray;
+            .dropup{
+                display: block;
+            }            
+        }
+    }
+}
+
+
+
+
+
+@media print {
+    html, body {
+       display: none;  /* hide whole page */
+    }
+}
