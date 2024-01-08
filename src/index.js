@@ -5,8 +5,9 @@ import App from './App';
 import LoginForm from './components/loginForm';
 import AdminPanel from './components/AdminPanel';
 import reportWebVitals from './reportWebVitals';
-let domain = 'https://orionlibraryapi.onrender.com'
+let domain = 'https://api.thekkc.co'
 //domain = 'http://localhost:4000'
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render( 
   <React.StrictMode>

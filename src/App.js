@@ -38,7 +38,7 @@ function App(props) {
           book:book
         }),
       })
-      console.log(serverResponse)
+      //console.log(serverResponse)
       if (serverResponse.ok){
         const img = await serverResponse.blob()
         setpageSrc(URL.createObjectURL(img))
@@ -124,8 +124,8 @@ function App(props) {
           </div>
         }
 
-
-    </div>
+ 
+    </div> 
   );
 }
 

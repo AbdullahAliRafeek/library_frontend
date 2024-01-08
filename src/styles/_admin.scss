@@ -1,6 +1,14 @@
 $min_width: 600px;
 $min_screen_width: $min_width+$min_width*0.15;
 
+@mixin popup{
+    width: 30em;
+    position: absolute;
+    background-color: lightgray;
+    border: 1px solid black;
+    display: none;
+}
+
 #panel-container{
     display: flex;
     justify-content: center;
@@ -28,7 +36,12 @@ $min_screen_width: $min_width+$min_width*0.15;
     .spec{
         width: 30%;
         height: 80%;
-        background-color: red;
+        background-color: $clr_sc1;
+        border: 0px;
+
+        &:hover{
+            background-color: rgb(67, 70, 255);
+        }
     }
 }
 
@@ -39,15 +52,17 @@ $min_screen_width: $min_width+$min_width*0.15;
     flex-direction: column;
     align-items: center;
     width: 100%;
+    background-color: #e5e5f7;
+    opacity: 0.8;
+    background: repeating-linear-gradient( 45deg, gray, gray 5px, lightgray 5px, lightgray 25px );
+    //background: repeating-linear-gradient( 45deg, $clr_pr2, $clr_pr2 5px, $clr_sc2 5px, $clr_sc2 25px );
 
     .user-info{
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        //border: 1px solid $clr_pr1;
-        *{
+        @include container(row);
+        width: 99%;
+        background-color: lightgray;
+        *{  
+            font-size: 0.9em;
             width: 25%;
             height: 100%;
             font-family: inherit;
@@ -55,9 +70,6 @@ $min_screen_width: $min_width+$min_width*0.15;
             display: grid;
             align-items: center;
             border: 1px solid black;
-        }
-        :nth-child(4){
-            width: 40%;
         }
 
         #add_btn{
@@ -79,14 +91,117 @@ $min_screen_width: $min_width+$min_width*0.15;
         }
     
     }
-    .user-info:first-child{
-        background-color: darkgray;
-        //color: white;
-    }
 
     .user-info:nth-child(2){
         background-color: $clr_sc1;
     }
+    
+}
+
+#user-query{
+    width: 100%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+
+    button{
+        flex-grow: 1;
+
+    }
+}
+
+#add_users_popup{
+    @include container(column);
+    @include popup();
+    row-gap: 0.6em;
+    padding: 0.4em;
+
+    form{
+        @include container(column);
+        width: 100%;
+    }
+
+    input{
+        width: 80%;
+        height: 2em;
+        border: 0px;
+        border-bottom: 1px solid black;
+        text-align: center;
+    }
+
+    .quick_select_buttons{
+        width: 80%;
+        @include container(row);
+        column-gap: 5em;
+        
+        button{
+            height: 5em;
+            border: 1px solid darkolivegreen;
+            border-radius: 50%;
+            flex-grow: 1;
+            background-color: green;
+
+            &:hover{
+                background-color: limegreen;
+            }
+        }
+    }
+
+
+}
+ 
+#user_confirmation_popup{
+    @include popup();
+    @include container(column);
+    //row-gap: ;
+    border: 2px solid black;
+    .row{
+        width: 100%;
+        @include container(row);
+        align-items: flex-end;
+        height: 1.5em; 
+
+        div, input{
+            font-weight: bold;
+            width: 36%;
+            flex-grow: 1;
+            text-align: center;
+            background-color: transparent;
+            border: 1px solid black;
+            height: 100%;
+
+            input{
+                width: 80%;
+                border: 0px;
+            }
+        }
+
+        .check-btn, .cross-btn{
+            height: 100%;
+            border: 0px;
+            border-top: 1px solid;
+            border-bottom: 1px solid;
+            //border-radius: 50%;
+            width: 4%;
+            background-color: green;
+
+            &:hover{
+                background-color: limegreen;
+            }
+        }
+        .cross-btn{
+            background-color: red;
+            &:hover{
+                background-color: rgb(255, 91, 118);
+            }
+        }
+
+    }
+    :nth-child(even){
+        background-color: darkgray;
+    }
+
 }
 
 
